@@ -4,16 +4,14 @@
 from melons import melon_info_dict
 
 
-def print_melon(name, seedless, price, flesh_color, rind_color, avg_weight):
+def print_melon(melon_info_dict):
     """Print each melon with corresponding attribute information."""
 
-    print(f"""{name.upper()}"""
-          f"""\n\tseedless: {seedless}"""
-          f"""\n\tprice: {price:.2f}"""
-          f"""\n\tflesh_color: {flesh_color}"""
-          f"""\n\tweight: {avg_weight}"""
-          f"""\n\trind_color: {rind_color}"""
-         )
+    # Print out each melon and its formation.
+    for melon, info in melon_info_dict.items():
+        print(melon.upper())
+        for attribute, value in info.items():
+            print(f'\t{attribute}: {value}')
 
 
 def add_info(melon_info_dict):
@@ -34,11 +32,6 @@ def main():
     while input("Would you like to add new melon info? (Y/N) ").upper() != 'N':
         add_info(melon_info_dict)
 
-    # Print out each melon and its formation.
-    for melon, info in melon_info_dict.items():
-        print(melon.upper())
-        for key, value in info.items():
-            print(f'\t{key}: {value}')
-
+    print_melon(melon_info_dict)
 
 main()
